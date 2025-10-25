@@ -16,4 +16,4 @@ namespace api.Models
         public Stock? Stock { get; set; }
         
     }
-}
+}   
