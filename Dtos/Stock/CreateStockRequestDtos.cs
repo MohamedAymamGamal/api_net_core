@@ -20,9 +20,6 @@ namespace api.Dtos.Stock
 
         public string MarketGap { get; set; } = string.Empty;
 
-        internal async Task<Models.Stock> ToStockFromCreateDtoAsync()
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }
