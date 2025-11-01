@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace api.Dtos.Stock
+{
+    public class CreateStockRequestDtos
+    {
+          public string Symbol { get; set; } = string.Empty;
+
+        public string CompanyName { get; set; } = string.Empty;
+
+        public decimal Purchase { get; set; }
+
+        public decimal LastDiv { get; set; }
+
+        public string Indeustry { get; set; } = string.Empty;
+
+
+        public string MarketGap { get; set; } = string.Empty;
+
+        internal async Task<Models.Stock> ToStockFromCreateDtoAsync()
+        {
+            throw new NotImplementedException();
+        }
+    }
+}

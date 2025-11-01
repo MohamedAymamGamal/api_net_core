@@ -21,8 +21,22 @@ namespace api.Mappers
                 LastDiv = stockModel.LastDiv,
                 Indeustry = stockModel.Indeustry,
                 MarketGap = stockModel.MarketGap,
-                
+
+            };
+        }
+
+        public static Stock ToStockFromCreateDto(this CreateStockRequestDtos stockDto)
+        {
+            return new Stock
+            {
+                Symbol = stockDto.Symbol,
+                CompanyName = stockDto.CompanyName,
+                Purchase = stockDto.Purchase,
+                LastDiv = stockDto.LastDiv,
+                Indeustry = stockDto.Indeustry,
+                MarketGap = stockDto.MarketGap,
             };
         }
     }
+    
 }
