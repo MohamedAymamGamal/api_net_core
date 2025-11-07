@@ -21,7 +21,7 @@ namespace api.Mappers
                 LastDiv = stockModel.LastDiv,
                 Indeustry = stockModel.Indeustry,
                 MarketGap = stockModel.MarketGap,
-
+                Comments = stockModel.Comments.Select(c => c.ToCommentDto()).ToList()
             };
         }
 

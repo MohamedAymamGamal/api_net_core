@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using api.Dtos.Comment;
 
 namespace api.Dtos.Stock
 {
@@ -20,6 +21,7 @@ namespace api.Dtos.Stock
 
 
         public string MarketGap { get; set; } = string.Empty;
-        
+
+        public required List<CommentDtos> Comments { get; set; }
     }
 } 
