@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using api.Dtos.Comment;
 using api.Models;
 
 namespace api.Data
@@ -11,9 +12,8 @@ namespace api.Data
         Task<List<Comment>> GetAllAsync();
         Task<Comment?> GetByIdAsync(int id);
 
-        Task<Comment> CreateAsync(Stock stockModel);
-        // Task<Comment?> UpdateAsync(int id, UpdateStockRequestDto stockDto);
-        Task<Stock?> DeleteAsync(int id);
-
+        Task<Comment> CreateAsync( Comment CommentModel);
+        Task<Comment?> UpdateAsync(int id, UpdateCommentRequest CommentDto);
+        Task<Comment?> DeleteAsync(int id);
     }
 }
