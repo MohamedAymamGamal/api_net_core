@@ -167,3 +167,9 @@ C:\Users\mohamed\RiderProjects\api\obj\Debug\net9.0\refint\api.dll
 C:\Users\mohamed\RiderProjects\api\obj\Debug\net9.0\api.pdb
 C:\Users\mohamed\RiderProjects\api\obj\Debug\net9.0\api.genruntimeconfig.cache
 C:\Users\mohamed\RiderProjects\api\obj\Debug\net9.0\ref\api.dll
+C:\Users\mohamed\RiderProjects\api\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\mohamed\RiderProjects\api\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\mohamed\RiderProjects\api\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\mohamed\RiderProjects\api\bin\Debug\net9.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\mohamed\RiderProjects\api\bin\Debug\net9.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\mohamed\RiderProjects\api\bin\Debug\net9.0\Microsoft.Extensions.Identity.Stores.dll

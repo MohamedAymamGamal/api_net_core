@@ -20,7 +20,7 @@ namespace api.Dtos.Stock
         public string Indeustry { get; set; } = string.Empty;
 
 
-        public string MarketGap { get; set; } = string.Empty;
+        public required string MarketCap { get; set; }
 
         public required List<CommentDtos> Comments { get; set; }
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using api.Dtos.Stock;
+using api.Helpers;
 using api.Models;
 
 namespace api.interfaces
@@ -13,9 +14,8 @@ namespace api.interfaces
         Task<Stock> CreateAsync(Stock stockModel);
         Task<Stock?> UpdateAsync(int id, UpdateStockRequestDto stockDto);
         Task<Stock?> DeleteAsync(int id);
-        Task<List<Stock>> GetAllAsync();
+        Task<List<Stock>> GetAllAsync(QueryObject query);
 
         Task<bool> StockExist(int id);
-        
     }
 }

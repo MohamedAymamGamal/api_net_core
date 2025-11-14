@@ -49,7 +49,12 @@ namespace api.Repository
             return await _context.Comments.FirstOrDefaultAsync(s => s.Id == id);
         }
 
-        public async Task<Comment?> UpdateAsync(int id, UpdateCommentRequest commentDto)
+        // public async Task<Comment?> UpdateAsync(int id, UpdateCommentRequest commentDto)
+        // {
+            
+        // }
+
+        public async Task<Comment?> UpdateAsync(int id, Comment CommentModel)
         {
             var existingComment = await _context.Comments.FirstOrDefaultAsync(x => x.Id == id);
 
@@ -60,16 +65,12 @@ namespace api.Repository
 
 
 
-            existingComment.Title = commentDto.Title;
-            existingComment.Content = commentDto.Content;
-            existingComment.CreatedOn = commentDto.CreatedOn;
-            existingComment.StockId = commentDto.StockId;
+            existingComment.Title = CommentModel.Title;
+            existingComment.Content = CommentModel.Content;
 
             await _context.SaveChangesAsync();
 
             return existingComment;
         }
-
-        
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using api.Data;
 using api.Dtos.Stock;
+using api.Helpers;
 using api.interfaces;
 using api.Models;
 using Microsoft.EntityFrameworkCore;
@@ -37,9 +38,28 @@ namespace api.Repository
             return stockModel;
         }
 
-        public async Task<List<Stock>> GetAllAsync()
+        public async Task<List<Stock>> GetAllAsync(QueryObject query)
         {
-            return await _context.Stocks.Include(c => c.Comments).ToListAsync();
+            var stocks = _context.Stocks.Include(c => c.Comments).AsQueryable();
+            if (!string.IsNullOrWhiteSpace(query.CompanyName))
+            {
+                stocks = stocks.Where(s => s.CompanyName.Contains(query.CompanyName));
+            }
+            if (!string.IsNullOrWhiteSpace(query.Symbol))
+            {
+                stocks = stocks.Where(s => s.Symbol.Contains(query.Symbol));
+            }
+            if (!string.IsNullOrWhiteSpace(query.SortBy))
+            {
+                if (query.SortBy.Equals("Symbol", StringComparison.OrdinalIgnoreCase))
+                {
+                    stocks = query.IsDecsending ? stocks.OrderByDescending(s => s.Symbol) : stocks.OrderBy(s => s.Symbol);
+                }
+                
+            }
+            var skipNumber = (query.PageNumber - 1) * query.PageSize;
+
+            return await stocks.Skip(skipNumber).Take(query.PageSize).ToListAsync();
         }
 
         public async Task<Stock?> GetByIdAsync(int id)
@@ -49,7 +69,7 @@ namespace api.Repository
 
         public Task<bool> StockExist(int id)
         {
-            return _context.Stocks.AnyAsync( s => s.Id == id);
+            return _context.Stocks.AnyAsync(s => s.Id == id);
         }
 
         public async Task<Stock?> UpdateAsync(int id, UpdateStockRequestDto stockDto)
@@ -65,8 +85,9 @@ namespace api.Repository
             existingStock.CompanyName = stockDto.CompanyName;
             existingStock.Purchase = stockDto.Purchase;
             existingStock.LastDiv = stockDto.LastDiv;
-            existingStock.Indeustry = stockDto.Indeustry;
-            existingStock.MarketGap = stockDto.MarketGap;
+
+            existingStock.Indeustry = stockDto.Industry;
+            existingStock.MarketCap = stockDto.MarketCap;
 
             await _context.SaveChangesAsync();
 

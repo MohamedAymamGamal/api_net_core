@@ -20,7 +20,7 @@ namespace api.Mappers
                 Purchase = stockModel.Purchase,
                 LastDiv = stockModel.LastDiv,
                 Indeustry = stockModel.Indeustry,
-                MarketGap = stockModel.MarketGap,
+                MarketCap   = stockModel.MarketCap.ToString(),
                 Comments = stockModel.Comments.Select(c => c.ToCommentDto()).ToList()
             };
         }
@@ -33,8 +33,8 @@ namespace api.Mappers
                 CompanyName = stockDto.CompanyName,
                 Purchase = stockDto.Purchase,
                 LastDiv = stockDto.LastDiv,
-                Indeustry = stockDto.Indeustry,
-                MarketGap = stockDto.MarketGap,
+                Indeustry = stockDto.Industry,
+                 MarketCap = stockDto.MarketCap,
             };
         }
     }

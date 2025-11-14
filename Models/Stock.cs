@@ -22,7 +22,7 @@ namespace api.Models
         public string Indeustry { get; set; } = string.Empty;
 
 
-        public string MarketGap { get; set; } = string.Empty;
+        public long MarketCap { get; set; }
         
         public List<Comment> Comments { get; set; } = new List<Comment>();
 
