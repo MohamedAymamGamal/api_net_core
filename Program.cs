@@ -2,6 +2,7 @@ using api.Data;
 using api.interfaces;
 using api.Models;
 using api.Repository;
+using api.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -18,7 +19,7 @@ builder.Services.AddOpenApi();
 builder.Services.AddControllers();
 builder.Services.AddScoped<IstockRepository, StockRepository>();
 builder.Services.AddScoped<ICommentRepositiory, CommentRepositiory>();
-
+builder.Services.AddScoped<ItokenService, TokenService>();
 builder.Services.AddDbContext<ApplicationDBContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
