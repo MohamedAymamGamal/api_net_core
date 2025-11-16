@@ -20,6 +20,8 @@ builder.Services.AddControllers();
 builder.Services.AddScoped<IstockRepository, StockRepository>();
 builder.Services.AddScoped<ICommentRepositiory, CommentRepositiory>();
 builder.Services.AddScoped<ItokenService, TokenService>();
+builder.Services.AddScoped<IPortifolioRepository, PortifolioRespoistory>();
+
 builder.Services.AddDbContext<ApplicationDBContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
